@@ -31,5 +31,11 @@ WORKDIR /app
 # 첫 번째 스테이지에서 빌드된 JAR 파일 복사
 COPY --from=builder /app/build/libs/*.jar app.jar
 
+# Fly.io가 사용하는 포트를 환경 변수로 설정
+ENV PORT 8080
+
+# 포트를 노출
+EXPOSE 8080
+
 # 실행할 JAR 파일 지정
 ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]

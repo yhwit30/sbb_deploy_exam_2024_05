@@ -38,4 +38,4 @@ ENV PORT 8080
 EXPOSE 8080
 
 # 실행할 JAR 파일 지정
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "-Dserver.address=0.0.0.0", "app.jar"]

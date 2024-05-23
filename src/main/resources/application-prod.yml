@@ -1,17 +1,17 @@
 spring:
   datasource:
-    url: jdbc:postgresql://sbb2405-deploy-db.internal:5432/postgres
-    username: postgres
-    password: Qehlep6VIWajrSw
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
-  jpa:
+jpa:
+  hibernate:
+    ddl-auto: update
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+  properties:
     hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        show_sql: false
-        format_sql: false
-        use_sql_comments: false
-
+      show_sql: false
+      format_sql: false
+      use_sql_comments: false
 server:
   address: 0.0.0.0
